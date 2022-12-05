@@ -1,0 +1,23 @@
+controller_joint_names: ['', 'first_link_joint', 'end_effector_joint', 'tray_diffusor_joint', ]
+
+# Robot name goes here
+robo9:  # change the name
+  # default controller
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+  first_link_controller:
+    type: effort_controllers/JointPositionController 
+    joint: "first_link_joint"
+    pid: {p: 100, i: 0, d: 30}
+
+  end_effector_controller:
+    type: effort_controllers/JointPositionController 
+    joint : "end_effector_joint"
+    pid: {p: 30, i: 0.5, d: 5}
+
+  tray_diffusor_joint_controller:
+    type: effort_controllers/JointPositionController 
+    joint : "tray_diffusor_joint"
+    pid: {p: 30, i: 0, d: .3}

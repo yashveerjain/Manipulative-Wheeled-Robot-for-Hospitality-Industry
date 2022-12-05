@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<!-- Name your robot here -->
+<robot name ="robo9" xmlns:xacro="http://wiki.ros.org/xacro">
+
+<!-- Include your urdf files here -->
+	<!-- Include Robot's urdf filepath -->
+	<!-- Include Lidar's urdf filepath -->
+	<xacro:include filename="$(find robo9)/urdf/robo9.urdf"/>
+	<xacro:macro name="box_inertia" params="mass x y z">
+        <inertia ixx="${mass*(y*y+z*z)/12}" ixy = "0" ixz = "0" iyy="${mass*(x*x+z*z)/12}" iyz = "0" izz="${mass*(x*x+y*y)/12}" />
+    </xacro:macro>
+		
+	<!-- IMU Link reference (https://navigation.ros.org/setup_guides/odom/setup_odom.html) -->
+	<link name="imu_link">
+		<visual>
+			<geometry>
+			<box size="0.1 0.1 0.1"/>
+			</geometry>
+		</visual>
+
+		<collision>
+			<geometry>
+			<box size="0.1 0.1 0.1"/>
+			</geometry>
+		</collision>
+
+		<!-- <xacro:box_inertia m="0.1" w="0.1" d="0.1" h="0.1"/> -->
+	</link>
+
+
+	<!-- Downbelow is the imu sensor for robot (http://gazebosim.org/tutorials?tut=ros_gzplugins#IMUsensor(GazeboRosImuSensor)) -->
+	<gazebo reference="imu_link">
+		<gravity>true</gravity>
+		<sensor name="imu_sensor" type="imu">
+		<always_on>true</always_on>
+		<update_rate>40</update_rate>
+		<visualize>true</visualize>
+		<!-- <topic>__default_topic__</topic>/ -->
+		<plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
+			<topicName>/robo9/imu</topicName>
+			<bodyName>imu_link</bodyName>
+			<updateRateHZ>10.0</updateRateHZ>
+			<gaussianNoise>0.0</gaussianNoise>
+			<xyzOffset>0 0 0</xyzOffset>
+			<rpyOffset>0 0 0</rpyOffset>
+			<frameName>imu_link</frameName>
+			<initialOrientationAsReference>false</initialOrientationAsReference>
+		</plugin>
+		<pose>0 0 0 0 0 0</pose>
+		</sensor>
+	</gazebo>
+
+<!--  Gazebo plugin for control here is already added for you -->
+	<gazebo>
+		<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+			<robotNamespace>/robo9</robotNamespace>
+			<robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+			<legacyModeNS>true</legacyModeNS>
+		</plugin>
+	</gazebo>
+
+<!-- Create a joint between your robot and sensor -->
+	<joint 
+		name="imu_chasis_joint"
+		type="fixed">
+		<origin xyz =".45 0 .27" rpy="0 0 0" />
+		<child link = "imu_link" />
+		<parent link="base_link" />
+	</joint>
+
+<!-- Differential Drive -->
+	<gazebo>
+		<plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+			<alwaysOn>true</alwaysOn>
+			<legacyMode>false</legacyMode>
+			<updateRate>20</updateRate>
+			<leftJoint>left_wheel_joint</leftJoint>
+			<rightJoint>right_wheel_joint</rightJoint>
+			<wheelSeparation>0.762</wheelSeparation>
+			<!-- in to m wheel base (30 in -> 0.762 m) -->
+			<wheelDiameter>0.2032</wheelDiameter> 
+			<!-- 8 in to m-> 0.2032 -->
+			<wheelTorque>40</wheelTorque>
+			<wheelAcceleration>1.0</wheelAcceleration>
+			<commandTopic>/robo9/cmd_vel</commandTopic>
+			<odometryTopic>/robo9/odom</odometryTopic>
+			<odometryFrame>odom</odometryFrame>
+			<robotBaseFrame>dummy_link</robotBaseFrame>
+		</plugin>
+	</gazebo>
+	<!-- <joint 
+		name="odom"
+		type="fixed">
+		<origin xyz ="0 0 0" rpy="0 0 0" />
+		<child link = "dummy_link" />
+		<parent link="odom" />
+	</joint> -->
+</robot>	
+
+
