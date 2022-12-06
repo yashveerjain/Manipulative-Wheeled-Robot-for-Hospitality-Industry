@@ -1,5 +1,9 @@
 #!/usr/bin/python3
 
+"""
+Operate the Robot fully autonomously
+"""
+
 import rospy
 import numpy as np
 import math
@@ -13,7 +17,7 @@ import sys, select, termios, tty
 import time
 
 msg = """
-Control Your Rat Bot!
+Control Your Bot!
 ---------------------------
 Moving around:
    u    i    o

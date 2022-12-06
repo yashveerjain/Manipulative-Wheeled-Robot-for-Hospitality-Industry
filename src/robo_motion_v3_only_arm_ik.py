@@ -14,15 +14,12 @@ import sys, select, termios, tty
 import time
 
 msg = """
-Control Your Rat Bot!
+Control Your Bot!
 ---------------------------
 Moving around:
    u    i    o
    j    k    l
    m    ,    .
-q/z : increase/decrease max speeds by 10%
-w/x : increase/decrease only linear speed by 10%
-e/c : increase/decrease only angular speed by 10%
 space key, k : force stop
 anything else : stop smoothly
 CTRL-C to quit
@@ -93,11 +90,6 @@ class Robot:
         self.settings = termios.tcgetattr(sys.stdin)
         self.tablePose = self.table2pose()
 
-        ## DH parameters values
-        self.a2 = 0.3048
-        self.a1 = 0
-
-
     def table2pose(self):
         return {
             "1" : ((-2,0),"right"),
@@ -135,6 +127,11 @@ class Robot:
         print("\n################DH Table--------------\n")
         print(tabulate(df, headers = 'keys', tablefmt = 'psql'))
         print("\n#################\n")
+        
+        ## DH parameters values
+        self.a2 = 0.3048
+        self.a1 = 0
+
         return df
 
     def vels(self,speed,turn):

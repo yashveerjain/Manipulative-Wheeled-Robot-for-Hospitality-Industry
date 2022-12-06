@@ -9,17 +9,25 @@ import sys, select, termios, tty
 import time
 
 msg = """
-Control Your Rat Bot!
+Control Your Bot!
 ---------------------------
 Moving around:
    u    i    o
    j    k    l
    m    ,    .
-q/z : increase/decrease max speeds by 10%
-w/x : increase/decrease only linear speed by 10%
-e/c : increase/decrease only angular speed by 10%
+
 space key, k : force stop
 anything else : stop smoothly
+----------------------------
+Moving Manipulator:
+e - move end-effector to its max distance
+E - move end-effector to its base position
+a - move first arm link to left position
+A - move first arm link to center from left position
+d - move first arm link to right position
+D - move first arm link to center from right position
+t - move tray diffusor to place the tray on table from end-effector
+T - move tray diffusor to its rest position
 CTRL-C to quit
 """
 
