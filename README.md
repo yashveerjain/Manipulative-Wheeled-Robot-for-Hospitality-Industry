@@ -23,9 +23,6 @@ catkin_make
     - Assuming the ROS is already installed and the workspace is already created as `catkin_ws` in home dir.
     - `robo9` is package name and so we are naming it our clone directory.
 
-## Robo Image
-![](robo_details/robo.png)
-
 ## Run
 * On one terminal
 ```
@@ -49,6 +46,17 @@ python3 robo9/src/robo_motion_v3_only_arm_ik.py
     - See the message printed on after running to hit right keys
 * robo_motion_v2.py
     - Meant to be fully Autonomous, but still work in progress ;)
+
+## Robo Workspace
+![](robo_details/RoboArmWorkspace.png)
+
+## Model
+Robot modelling is done on solidworks, part and assembly files are present [here](robot_part_files_solidworks/)
+
+
+## Robo Image
+![](robo_details/robo.png)
+
 
 ## Depedencies
 * ROS - noetic
