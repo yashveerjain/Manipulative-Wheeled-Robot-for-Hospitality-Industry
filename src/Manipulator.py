@@ -37,8 +37,8 @@ D = 10 # in # max end effector pose
 x1 = (a2+D)*np.cos(ang).reshape(-1,)
 y1 = (a2+D)*np.sin(ang).reshape(-1,)
 plt.title("Robot Arm Workspace")
-plt.xlabel("x axis (in)")
-plt.ylabel("x axis (in)")
+plt.xlabel("Robot x axis (in)")
+plt.ylabel("Robot y axis (in)")
 plt.plot(x1,y1,'r',label="max")
 
 # min end effector pose 0 in
