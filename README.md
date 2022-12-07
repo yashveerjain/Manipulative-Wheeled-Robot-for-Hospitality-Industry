@@ -63,3 +63,8 @@ Robot modelling is done on solidworks, part and assembly files are present [here
 * python3
 * gazebo
 * Rviz
+
+## Installing Dependencies for Python
+```
+pip install -r requirements.txt
+```
