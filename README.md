@@ -6,12 +6,13 @@ These kinds of robots are very efficient and convenient during the covid times w
 
 There are many applications instead of serving food, including but not limited to hospitality, home and the patients with covid positive.  
 
-
 ## Team
 * Yashveer Jain
 * Rohit Reddy
 
-## installation
+---
+
+## Installation
 ```
 cd ~/catkin_ws/src
 git clone https://github.com/yashveerjain/Manipulative-Wheeled-Robot-for-Hospitality-Industry.git robo9
@@ -22,6 +23,8 @@ catkin_make
 * Note: 
     - Assuming the ROS is already installed and the workspace is already created as `catkin_ws` in home dir.
     - `robo9` is package name and so we are naming it our clone directory.
+
+---
 
 ## Run
 * On one terminal
@@ -50,13 +53,14 @@ python3 robo9/src/robo_motion_v3_only_arm_ik.py
 ## Robo Workspace
 ![](robo_details/RoboArmWorkspace.png)
 
+---
+
 ## Model
 Robot modelling is done on solidworks, part and assembly files are present [here](robot_part_files_solidworks/)
 
-
-## Robo Image
 ![](robo_details/robo.png)
 
+---
 
 ## Depedencies
 * ROS - noetic
@@ -64,7 +68,7 @@ Robot modelling is done on solidworks, part and assembly files are present [here
 * gazebo
 * Rviz
 
-## Installing Dependencies for Python
+### Installing Dependencies for Python
 ```
 pip install -r requirements.txt
 ```
