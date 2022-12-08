@@ -32,7 +32,7 @@ rng = np.ones_like(ang)
 Qs = np.hstack((ang,rng))
 
 ###
-a2 = 12 # in # first link length
+a2 = 12+7 # in # first link length + 7 in end effector length to tray
 D = 10 # in # max end effector pose
 x1 = (a2+D)*np.cos(ang).reshape(-1,)
 y1 = (a2+D)*np.sin(ang).reshape(-1,)
@@ -48,4 +48,5 @@ plt.plot(x2,y2,'b',label="min")
 plt.fill_between(x1,y1,alpha=0.2,color="green")
 plt.fill_between(x2,y2,alpha=0.5,color="white")
 plt.legend()
-plt.show()
+# plt.show()
+plt.savefig("robo_details/arm_workspace_end_effector_end_point.png")
