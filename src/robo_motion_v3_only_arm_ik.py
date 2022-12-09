@@ -25,6 +25,15 @@ anything else : stop smoothly
 CTRL-C to quit
 """
 
+table_details = """
+"1" : ((-2,0),"right"),
+"2" : ((-5,0),"right"),
+"3" : ((-8,0),"right"),
+"4" : ((-8,0),"left"),
+"5" : ((-5,0),"left"),
+"6" : ((-2,0),"left"),            
+"""
+
 class Robot:
         # pub_left = rospy.Publisher('/rat_bot/front_left_axle_revolute_controller/command', Float64, queue_size=10)
     
@@ -88,10 +97,12 @@ class Robot:
             }
         self.start=True
         self.settings = termios.tcgetattr(sys.stdin)
-        self.tablePose = self.table2pose()
+        self.table2pose()
+        
+        
 
     def table2pose(self):
-        return {
+        self.tablePose = {
             "1" : ((-2,0),"right"),
             "2" : ((-5,0),"right"),
             "3" : ((-8,0),"right"),
@@ -99,6 +110,11 @@ class Robot:
             "5" : ((-5,0),"left"),
             "6" : ((-2,0),"left"),            
         }
+        print("Table coordinates ---")
+        print("Key : Location")
+        for key, value in self.tablePose.items():
+            print(key, ' : ', value) 
+        print("------")   
     def getKey(self):
         
         tty.setraw(sys.stdin.fileno())
@@ -115,8 +131,8 @@ class Robot:
         theta_1  = thetas
         self.a1,self.a2,self.D = distances
         # DH Parameters
-        data = {r'theta': [theta_1, 0],#['laptop', 'printer', 'tablet', 'desk', 'chair'],
-                'alpha': [0, -90], #[1200, 150, 300, 450, 200],
+        data = {r'theta': [theta_1-90, 0],#['laptop', 'printer', 'tablet', 'desk', 'chair'],
+                'alpha': [-90, 0], #[1200, 150, 300, 450, 200],
                 'r' : [0,0],
                 'd' : [self.a1,self.a2+self.D]
                 }
@@ -166,7 +182,7 @@ class Robot:
         print(f"moving arm in {direction} direction --- ")
         self.gen_arm_move_func(self.pub_manipulator, self.front_man_angle, theta_pre)
         self.D = xf/math.cos(theta_pre) - self.a2
-        # self.D.subs({self.a2:0.3048})
+        
         print("Dispatching end effector --- ")
         self.gen_arm_move_func(self.pub_end_effector, self.initial_end_effector_pose, self.D)
         print("IK : ",self.D, "| theta : ",theta)
