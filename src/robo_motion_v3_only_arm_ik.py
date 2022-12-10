@@ -169,19 +169,23 @@ class Robot:
     def IK_arm(self, tableKey):
         pose, direction = self.tablePose[tableKey]
         print(direction)
+        # Pose w.r.t to robot
         if direction=="right":
-            xf = -0.55
-            yf = 0
+            yf = -0.55
+            xf = 0
         else:
-            xf = 0.55
-            yf = 0
+            yf = 0.55
+            xf = 0
         theta_pre = self.get_desired_steering(xf,yf)
         print(theta_pre)
-        theta = self.front_man_angle - theta_pre
-        print(self.front_man_angle, theta_pre)
+        theta = theta_pre - 1.57 # subtracting with 90 deg
+        print(self.front_man_angle, theta)
         print(f"moving arm in {direction} direction --- ")
-        self.gen_arm_move_func(self.pub_manipulator, self.front_man_angle, theta_pre)
-        self.D = xf/math.cos(theta_pre) - self.a2
+        self.gen_arm_move_func(self.pub_manipulator, self.front_man_angle, theta)
+        if math.cos(theta)<1e-2 and math.cos(theta)>-1e-2:
+            self.D = -xf/math.sin(theta) - self.a2
+        else:
+            self.D = yf/math.cos(theta) - self.a2
         
         print("Dispatching end effector --- ")
         self.gen_arm_move_func(self.pub_end_effector, self.initial_end_effector_pose, self.D)
@@ -191,7 +195,7 @@ class Robot:
         self.gen_arm_move_func(self.pub_end_effector, self.D, self.initial_end_effector_pose)
 
         print(f"moving arm to base position --- ")
-        self.gen_arm_move_func(self.pub_manipulator,theta_pre, self.front_man_angle)
+        self.gen_arm_move_func(self.pub_manipulator,theta, self.front_man_angle)
 
 
     def base_move(self, start_pose, goal_pose):
