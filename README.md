@@ -4,7 +4,7 @@ Serve in restraunts
 ## Overview
 These kinds of robots are very efficient and convenient during the covid times without much human intervention, which will deliver the food from the kitchen to the table. This ensures the hygiene of the food and safety of the customers. 
 
-There are many applications instead of serving food, including but not limited to hospitality, home and the patients with covid positive.  
+There are many applications instead of serving food, including but not limited to hospitality, home and the patients with covid positive. More details can be found [here](Report.pdf)
 
 ## Team
 * Yashveer Jain
