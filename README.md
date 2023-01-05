@@ -76,7 +76,7 @@ Robot modelling is done on solidworks, part and assembly files are present [here
 ## Personnel:
 * Rohit Reddy Pakhala
 UID: 119399125
-*Yashveer Jain
+* Yashveer Jain
 UID: 119252864
 
 ### Installing Dependencies for Python
