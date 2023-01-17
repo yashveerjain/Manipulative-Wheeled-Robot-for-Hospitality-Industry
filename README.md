@@ -51,7 +51,7 @@ python3 robo9/src/robo_motion_v3_only_arm_ik.py
     - Meant to be fully Autonomous, but still work in progress ;)
 
 ## Robo Workspace
-![](robo_details/RoboArmWorkspace.png)
+![](robo_details/arm_workspace_end_effector_end_point.png)
 
 ---
 
