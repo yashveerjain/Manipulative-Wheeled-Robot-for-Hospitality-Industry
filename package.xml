@@ -1,8 +1,8 @@
 <package format="2">
-  <name>robo9</name>
+  <name>modified_robo9_with_planning</name>
   <version>1.0.0</version>
   <description>
-    <p>URDF Description package for robo9</p>
+    <p>URDF Description package for modified_robo9_with_planning</p>
     <p>This package contains configuration data, 3D models and launch files
 for robo9 robot</p>
   </description>

@@ -1,7 +1,7 @@
 controller_joint_names: ['', 'first_link_joint', 'end_effector_joint', 'tray_diffusor_joint', ]
 
 # Robot name goes here
-robo9:  # change the name
+modified_robo9_with_planning:  # change the name
   # default controller
   joint_state_controller:
     type: joint_state_controller/JointStateController

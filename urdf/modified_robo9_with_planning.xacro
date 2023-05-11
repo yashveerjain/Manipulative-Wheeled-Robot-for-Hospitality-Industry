@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <!-- Name your robot here -->
-<robot name ="robo9" xmlns:xacro="http://wiki.ros.org/xacro">
+<robot name ="modified_robo9_with_planning" xmlns:xacro="http://wiki.ros.org/xacro">
 
 <!-- Include your urdf files here -->
 	<!-- Include Robot's urdf filepath -->
 	<!-- Include Lidar's urdf filepath -->
-	<xacro:include filename="$(find robo9)/urdf/robo9.urdf"/>
+	<xacro:include filename="$(find modified_robo9_with_planning)/urdf/modified_robo9_with_planning.urdf"/>
 	<xacro:macro name="box_inertia" params="mass x y z">
         <inertia ixx="${mass*(y*y+z*z)/12}" ixy = "0" ixz = "0" iyy="${mass*(x*x+z*z)/12}" iyz = "0" izz="${mass*(x*x+y*y)/12}" />
     </xacro:macro>
@@ -37,7 +37,7 @@
 		<visualize>true</visualize>
 		<!-- <topic>__default_topic__</topic>/ -->
 		<plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
-			<topicName>/robo9/imu</topicName>
+			<topicName>/modified_robo9_with_planning/imu</topicName>
 			<bodyName>imu_link</bodyName>
 			<updateRateHZ>10.0</updateRateHZ>
 			<gaussianNoise>0.0</gaussianNoise>
@@ -53,7 +53,7 @@
 <!--  Gazebo plugin for control here is already added for you -->
 	<gazebo>
 		<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-			<robotNamespace>/robo9</robotNamespace>
+			<robotNamespace>/modified_robo9_with_planning</robotNamespace>
 			<robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
 			<legacyModeNS>true</legacyModeNS>
 		</plugin>
@@ -73,7 +73,7 @@
 		<plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
 			<alwaysOn>true</alwaysOn>
 			<legacyMode>false</legacyMode>
-			<updateRate>20</updateRate>
+			<updateRate>30</updateRate>
 			<leftJoint>left_wheel_joint</leftJoint>
 			<rightJoint>right_wheel_joint</rightJoint>
 			<wheelSeparation>0.762</wheelSeparation>
@@ -81,9 +81,9 @@
 			<wheelDiameter>0.2032</wheelDiameter> 
 			<!-- 8 in to m-> 0.2032 -->
 			<wheelTorque>40</wheelTorque>
-			<wheelAcceleration>1.0</wheelAcceleration>
-			<commandTopic>/robo9/cmd_vel</commandTopic>
-			<odometryTopic>/robo9/odom</odometryTopic>
+			<wheelAcceleration>5.0</wheelAcceleration>
+			<commandTopic>/modified_robo9_with_planning/cmd_vel</commandTopic>
+			<odometryTopic>/modified_robo9_with_planning/odom</odometryTopic>
 			<odometryFrame>odom</odometryFrame>
 			<robotBaseFrame>dummy_link</robotBaseFrame>
 		</plugin>

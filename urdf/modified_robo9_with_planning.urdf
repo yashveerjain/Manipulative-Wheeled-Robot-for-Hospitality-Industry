@@ -3,7 +3,7 @@
      Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot
-  name="robo9">
+  name="modified_robo9_with_planning">
   <link name="dummy_link" />
 
   <joint name="dummy_link_to_base_link" type="fixed">
@@ -32,7 +32,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robo9/meshes/base_link.STL" />
+          filename="package://modified_robo9_with_planning/meshes/base_link.STL" />
       </geometry>
       <material
         name="">
@@ -46,7 +46,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robo9/meshes/base_link.STL" />
+          filename="package://modified_robo9_with_planning/meshes/base_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -72,7 +72,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robo9/meshes/left_wheel.STL" />
+          filename="package://modified_robo9_with_planning/meshes/left_wheel.STL" />
       </geometry>
       <material
         name="">
@@ -86,7 +86,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robo9/meshes/left_wheel.STL" />
+          filename="package://modified_robo9_with_planning/meshes/left_wheel.STL" />
       </geometry>
     </collision>
   </link>
@@ -125,7 +125,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robo9/meshes/right_wheel.STL" />
+          filename="package://modified_robo9_with_planning/meshes/right_wheel.STL" />
       </geometry>
       <material
         name="">
@@ -139,7 +139,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robo9/meshes/right_wheel.STL" />
+          filename="package://modified_robo9_with_planning/meshes/right_wheel.STL" />
       </geometry>
     </collision>
   </link>
@@ -178,7 +178,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robo9/meshes/base_to_first_link.STL" />
+          filename="package://modified_robo9_with_planning/meshes/base_to_first_link.STL" />
       </geometry>
       <material
         name="">
@@ -192,7 +192,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robo9/meshes/base_to_first_link.STL" />
+          filename="package://modified_robo9_with_planning/meshes/base_to_first_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -231,7 +231,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robo9/meshes/first_link.STL" />
+          filename="package://modified_robo9_with_planning/meshes/first_link.STL" />
       </geometry>
       <material
         name="">
@@ -245,7 +245,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robo9/meshes/first_link.STL" />
+          filename="package://modified_robo9_with_planning/meshes/first_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -294,7 +294,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robo9/meshes/second_link.STL" />
+          filename="package://modified_robo9_with_planning/meshes/second_link.STL" />
       </geometry>
       <material
         name="">
@@ -308,7 +308,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robo9/meshes/second_link.STL" />
+          filename="package://modified_robo9_with_planning/meshes/second_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -347,7 +347,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robo9/meshes/end_effector_link.STL" />
+          filename="package://modified_robo9_with_planning/meshes/end_effector_link.STL" />
       </geometry>
       <material
         name="">
@@ -361,7 +361,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robo9/meshes/end_effector_link.STL" />
+          filename="package://modified_robo9_with_planning/meshes/end_effector_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -415,7 +415,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robo9/meshes/tray_diffusor.STL" />
+          filename="package://modified_robo9_with_planning/meshes/tray_diffusor.STL" />
       </geometry>
       <material
         name="">
@@ -429,7 +429,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robo9/meshes/tray_diffusor.STL" />
+          filename="package://modified_robo9_with_planning/meshes/tray_diffusor.STL" />
       </geometry>
     </collision>
   </link>

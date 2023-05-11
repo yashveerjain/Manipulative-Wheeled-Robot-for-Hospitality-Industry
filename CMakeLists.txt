@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8.3)
 
-project(robo9)
+project(modified_robo9_with_planning)
 
 find_package(catkin REQUIRED)
 
